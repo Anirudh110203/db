@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Active Auctions</h2>
+
+{% for auction in auctions %}
+    <div>
+        <h3><a href="{{ url_for('auction_detail', auction_id=auction.id) }}">{{ auction.item.title }}</a></h3>
+        <p>{{ auction.item.description }}</p>
+        <p>Starting Price: ${{ auction.start_price }}</p>
+        <p>Status: {{ auction.status }}</p>
+    </div>
+    <hr>
+{% endfor %}
+
+{% endblock %}

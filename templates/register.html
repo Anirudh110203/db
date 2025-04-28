@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Register</h2>
+<form method="POST">
+    Username: <input type="text" name="username" required><br>
+    Email: <input type="email" name="email" required><br>
+    Password: <input type="password" name="password" required><br>
+    User Type: 
+    <select name="user_type" required>
+        <option value="buyer">Buyer</option>
+        <option value="seller">Seller</option>
+        <option value="rep">Customer Representative</option>
+        <option value="admin">Admin</option>
+    </select><br>
+    <button type="submit">Register</button>
+</form>
+{% endblock %}

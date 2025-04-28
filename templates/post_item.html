@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Post a New Item</h2>
+
+<form method="POST">
+    Title: <input type="text" name="title" required><br>
+    Description: <textarea name="description" required></textarea><br>
+
+    Category:
+    <select name="category_id" id="categorySelect" onchange="showOtherCategory()" required>
+        <option value="car">Car</option>
+        <option value="bike">Bike</option>
+        <option value="motorcycle">Motorcycle</option>
+        <option value="bus">Bus</option>
+        <option value="truck">Truck</option>
+        <option value="ship">Ship</option>
+        <option value="other">Other</option>
+    </select><br>
+
+    <div id="otherCategoryDiv" style="display:none;">
+        Specify Other Category: <input type="text" name="other_category"><br>
+    </div>
+
+    Start Price: <input type="number" step="0.01" name="start_price" required><br>
+    Minimum Increment: <input type="number" step="0.01" name="min_increment" required><br>
+    Minimum Acceptable Price: <input type="number" step="0.01" name="min_price" required><br>
+    
+    Auction Start Time: <input type="datetime-local" name="start_time" required><br>
+    Auction End Time: <input type="datetime-local" name="end_time" required><br>
+
+    <!-- Optional fields for vehicles -->
+    Vehicle Make: <input type="text" name="vehicle_make"><br>
+    Vehicle Model: <input type="text" name="vehicle_model"><br>
+    Year: <input type="number" name="year"><br>
+    Mileage: <input type="number" name="mileage"><br>
+
+    <button type="submit">Post Item</button>
+</form>
+
+<script>
+function showOtherCategory() {
+    var categorySelect = document.getElementById('categorySelect');
+    var otherDiv = document.getElementById('otherCategoryDiv');
+    if (categorySelect.value === 'other') {
+        otherDiv.style.display = 'block';
+    } else {
+        otherDiv.style.display = 'none';
+    }
+}
+</script>
+
+{% endblock %}

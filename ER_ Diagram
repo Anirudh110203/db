@@ -1,0 +1,81 @@
++--------------------+
+|      users         |
++--------------------+
+| id (PK)            |
+| username           |
+| email              |
+| password_hash      |
+| user_type          |
++--------------------+
+       |
+       |<-- seller_id
+       |
++--------------------+
+|      items         |
++--------------------+
+| id (PK)            |
+| title              |
+| description        |
+| category_id (FK)   |
+| seller_id (FK)     |
+| post_date          |
+| vehicle_make       |
+| vehicle_model      |
+| year               |
+| mileage            |
++--------------------+
+       |
+       |<-- item_id
+       |
++--------------------+
+|     auctions       |
++--------------------+
+| id (PK)            |
+| item_id (FK)       |
+| start_price        |
+| min_increment      |
+| min_price          |
+| start_time         |
+| end_time           |
+| status             |
++--------------------+
+       |
+       |<-- auction_id
+       |
++--------------------+
+|      bids          |
++--------------------+
+| id (PK)            |
+| auction_id (FK)    |
+| user_id (FK)       |
+| bid_time           |
+| bid_amount         |
+| max_auto_bid       |
++--------------------+
+
++--------------------+
+|    alerts          |
++--------------------+
+| id (PK)            |
+| user_id (FK)       |
+| keyword            |
++--------------------+
+
++--------------------+
+|    categories      |
++--------------------+
+| id (PK)            |
+| name               |
+| parent_id (FK)     |
++--------------------+
+
++----------------------------+
+| customer_action_logs       |
++----------------------------+
+| id (PK)                    |
+| rep_id (FK)                |
+| action_type                |
+| action_time                |
+| target_user_id (FK)        |
+| details                    |
++----------------------------+
